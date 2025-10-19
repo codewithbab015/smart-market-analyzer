@@ -27,15 +27,15 @@ User → Query Clarifier → Category Mapper → Crawl Orchestrator → Results 
 
 ### **What You Get**
 
-* A list of the top 3 products.
-* Each product includes:
+- A list of the top 3 products.
+- Each product includes:
 
-  * Key details and price.
-  * A short reason for why it’s recommended.
+  - Key details and price.
+  - A short reason for why it’s recommended.
 
 ### **Main Outputs**
 
-* A working multi-agent system.
-* Data formats (JSON) for agent communication.
-* Product ranking logic.
-* Setup and usage guide.
+- A working multi-agent system.
+- Data formats (JSON) for agent communication.
+- Product ranking logic.
+- Setup and usage guide.
