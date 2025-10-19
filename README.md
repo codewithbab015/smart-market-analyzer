@@ -1,92 +1,41 @@
-# 🧠 smart-market-analyzer
+## **Market Analysis Agent**
 
-An AI-driven multi-agent system that intelligently crawls, analyses, and synthesises product data from online marketplaces to provide users with reliable, context-aware purchasing recommendations.
+### **Overview**
 
----
+The **Market Analysis Agent** is an AI tool that helps users find the best products online. It takes a user’s search request and turns it into clear product suggestions by collecting and analysing data from online shops.
 
-## 🚀 Project Overview
+### **Goal**
 
-**Objective:**  
-To develop an AI-powered tool that assists users in identifying high-quality and relevant products by analysing product reviews, specifications, and marketplace trends. The system transforms vague user queries into actionable, data-backed insights.
+To build a smart system that can:
 
----
+1. Understand what the user wants.
+2. Find product data from online stores.
+3. Rank products by quality, popularity, and price.
+4. Show the best 3 products with short, clear reasons.
 
-## 🎯 Measurable Objectives
+### **How It Works**
 
-The project’s success is determined by the system’s ability to:
+The system has **four AI agents** that work one after another:
 
-- **Rank Products by Review Quality and Volume:**  
-  Combine average ratings and review counts to reflect both quality and user confidence.  
+1. **Query Clarifier** – Understands what the user means.
+2. **Category Mapper** – Decides where and how to look for products.
+3. **Crawl Orchestrator** – Collects real product data from websites.
+4. **Results Refiner** – Filters, ranks, and shows the best results.
 
-- **Identify Trending and Popular Products:**  
-  Detect products with high engagement through review recency and frequency.  
+**Process:**
+User → Query Clarifier → Category Mapper → Crawl Orchestrator → Results Refiner → Final Results
 
-- **Highlight High-Value Products:**  
-  Recognise promotions and exceptional value through review and price analysis.  
+### **What You Get**
 
-- **Provide Reliable Recommendations:**  
-  Present the top 3 curated products with clear reasoning to enhance user trust and decision-making speed.  
+* A list of the top 3 products.
+* Each product includes:
 
----
+  * Key details and price.
+  * A short reason for why it’s recommended.
 
-## ⚙️ System Architecture
+### **Main Outputs**
 
-The system is composed of **four specialised AI agents** operating in a sequential workflow:
-
-1. **Query Clarifier** – Interprets and normalises user queries into structured intents.  
-2. **Taxonomy Mapper** – Converts structured intents into crawl instructions using marketplace taxonomies.  
-3. **Crawl Orchestrator** – Executes crawling tasks via `crawl4ai` and retrieves raw product data.  
-4. **Results Refiner** – Validates, ranks, and presents the top products with justifications.
-
-**Data Flow:**  
-
----
-
-## 🧩 Agent Specifications
-
-| Agent | Role | Input | Output | Key Functionality |
-|-------|------|--------|---------|------------------|
-| **1. Query Clarifier & Intent Analyst** | Interpreter | Raw User Query | Structured Intent (JSON) | Corrects typos, extracts entities, resolves ambiguity, and identifies non-negotiable vs inferred filters. |
-| **2. Category & Taxonomy Mapper** | Translator | Structured Intent (JSON) | Crawl Instructions (JSON) | Maps user intent to marketplace taxonomies and generates crawler-ready instructions. |
-| **3. CrawlFor.AI Orchestrator** | Executor | Crawl Instructions (JSON) | Raw Product Data | Interfaces with `crawl4ai` to retrieve product listings, reviews, and pricing. |
-| **4. Results Refiner & Presenter** | Curator | Raw Product Data | Final Recommendations | Validates, ranks, and presents top products with justification for each recommendation. |
-
----
-
-## 🔄 End-to-End Workflow Example
-
-1. **User Input:**  
-   “Good gaming laptop for VR.”  
-
-2. **Clarification:**  
-   Agent 1 → `{"category": "laptop", "use_case": ["gaming", "VR"], "key_attributes": ["dedicated_gpu", "high_ram"]}`  
-
-3. **Crawl Planning:**  
-   Agent 2 maps to category → “Electronics → Computers → Gaming Laptops”.  
-
-4. **Data Retrieval:**  
-   Agent 3 crawls the marketplace and collects relevant product data.  
-
-5. **Result Refinement:**  
-   Agent 4 filters, ranks, and outputs the top 3 recommendations with reasoning.
-
----
-
-## 📦 Key Deliverables
-
-- Fully integrated **multi-agent pipeline** from query to recommendation.  
-- Structured **JSON communication schema** between agents.  
-- Custom **ranking and presentation algorithm** for product scoring.  
-- Clear documentation for deployment and interaction.  
-
----
-
-## 🧭 Summary
-
-The **Market Analysis Agent** unifies intelligent crawling, natural language understanding, and analytical ranking into a seamless AI pipeline — designed to simplify and improve product discovery for end users.
-
----
-
-**Author:** [Nhlanhla Baloyi]  
-**Repository:** [`smart-market-analyzer`](https://github.com/yourusername/market-scout-ai)
-
+* A working multi-agent system.
+* Data formats (JSON) for agent communication.
+* Product ranking logic.
+* Setup and usage guide.
