@@ -11,7 +11,7 @@ import pandas as pd
 from langchain_ollama import OllamaLLM
 from pydantic.dataclasses import dataclass
 
-from .prompts import query_improver_prompt, query_ranker_prompt, translator_prompt
+from .prompts import COMPACT_SEARCH_PROMPT, RANK_QUERY_PROMPT, REFINE_QUERY_PROMPT
 
 # Configure logging
 logging.basicConfig(
@@ -62,7 +62,7 @@ class QueryBuilder:
     def _model_chain(model_id: str):
         """Cache and create a model chain with prompt instructions."""
         llm = OllamaLLM(model=model_id, temperature=0.1)
-        return query_improver_prompt | llm
+        return REFINE_QUERY_PROMPT | llm
 
     async def _run_model(self, name: str, model_id: str, query: str) -> Tuple[str, str]:
         """Run a model asynchronously and return cleaned output."""
@@ -117,7 +117,7 @@ class RankQuery:
     def __post_init__(self):
         # Initialize the supervisor LLM and chain at instance level
         self.llm_supervisor = OllamaLLM(model=self.model_id, temperature=0.1)
-        self.chain = query_ranker_prompt | self.llm_supervisor
+        self.chain = RANK_QUERY_PROMPT | self.llm_supervisor
 
     def _model_output_response(self, output: str) -> Dict[str, Any]:
         """Clean markdown formatting and parse JSON response safely."""
@@ -211,7 +211,7 @@ class QueryTranslator:
 
     def __post_init__(self):
         self.llm = OllamaLLM(model=self.model_id, temperature=self.temperature)
-        self.chain = translator_prompt | self.llm
+        self.chain = COMPACT_SEARCH_PROMPT | self.llm
 
     def show_translated_query(self, query: str) -> str:
         """Translate or refine the given user query."""

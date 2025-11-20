@@ -73,7 +73,6 @@ async def product_crawler(state: MarketplaceState) -> MarketplaceState:
     Crawls marketplace products based on the translated query URL.
     """
     logger.info("Crawling marketplace...")
-
     try:
         search_url = state.get("search_url")
         if not search_url:
